@@ -8,15 +8,16 @@
 #include "game.h"
 #include "colors.h"
 
-void game::numRepeat() {
+void numRepeat() {
     const int MAX_DISPLAY = 9; //The number that is displayed. Keep in single digit.
     const int MAX_COUNT = 7;
+    const int MIN_COUNT = 1;
 
     std::random_device rd;
     std::mt19937 mt(rd());
 
     std::uniform_int_distribution<int>
-            displayRand(1, MAX_DISPLAY);
+            displayRand(MIN_COUNT, MAX_DISPLAY);
     std::uniform_int_distribution<int>
             countRand(1, MAX_COUNT);
 
@@ -57,7 +58,10 @@ void game::numRepeat() {
                     stop = true;
                     break;
                 } else {
-                    parsedInput = std::stoi(input);
+                    try { parsedInput = std::stoi(input); }
+                    catch (const std::invalid_argument &) {
+                        continue;
+                    }
 
                     // Correct
                     if (parsedInput == count) {
