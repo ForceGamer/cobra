@@ -1,2 +1,2 @@
 # cobra
-C++ rewrite of memoire
+C++ rewrite of [memoire](https://github.com/ForceGamer/memoire)
