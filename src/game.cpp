@@ -4,6 +4,7 @@
 
 #include <random>
 #include <chrono>
+#include <string> //Apparently <string> is needed specifically for Windows to compile
 
 #include "game.h"
 #include "colors.h"
